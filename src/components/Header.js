@@ -2,13 +2,15 @@
 import React from 'react';
 import { Link } from 'react-scroll';
 import { motion } from 'framer-motion';
+// Import the image from the local file system
+import headerBackground from '../assets/header-background.png'; // Adjust the path as necessary
 
 function Header() {
   return (
     <header
       id="header" // Ensure this matches the 'to' prop in the Link
       className="h-screen bg-cover bg-center"
-      style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1517245386807-bb43f82c33c4)' }}
+      style={{ backgroundImage: `url(${headerBackground})` }} // Use the imported local image
     >
       <div className="h-full w-full bg-black bg-opacity-60 flex flex-col items-center justify-center">
         <motion.h1
