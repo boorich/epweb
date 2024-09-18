@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/boorich/epweb/static/css/main.68df4f30.css",
+    "main.js": "/boorich/epweb/static/js/main.ab9fd120.js",
+    "static/js/453.b89118c6.chunk.js": "/boorich/epweb/static/js/453.b89118c6.chunk.js",
+    "static/media/header-background.png": "/boorich/epweb/static/media/header-background.c1f8fa3c90479a03dae0.png",
+    "static/media/logo.svg": "/boorich/epweb/static/media/logo.cd5d418e620fdcd1ba0d65acad9d1d07.svg",
+    "index.html": "/boorich/epweb/index.html",
+    "main.68df4f30.css.map": "/boorich/epweb/static/css/main.68df4f30.css.map",
+    "main.ab9fd120.js.map": "/boorich/epweb/static/js/main.ab9fd120.js.map",
+    "453.b89118c6.chunk.js.map": "/boorich/epweb/static/js/453.b89118c6.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.68df4f30.css",
+    "static/js/main.ab9fd120.js"
+  ]
+}
