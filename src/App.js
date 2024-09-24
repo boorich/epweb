@@ -135,33 +135,34 @@ function App() {
             At ChainSafe, we're proud to have developed deep expertise in Web3 technologies. We believe that the best results come from partnering with equally dedicated and innovative teams in the gaming industry. Together, we can explore new possibilities and create meaningful advancements in Web3 and gaming.
           </p>
         </div>
-        <div className="grid md:grid-cols-3 gap-2">
+        <div className="grid grid-cols-2 gap-2">
           <FlippableCard
             frontTitle="Proven Excellence"
-            frontText="Established studios with a distinguished track record of success and innovation."
-            backText="Your studio consistently delivers groundbreaking titles that set the benchmark in the industry."
+            frontText="A history of raising the bar in quality and innovation."
+            backText="Your studio sets trends. With each title, you push the boundaries of what’s possible, delivering experiences that shape the future of gaming."
             onCheck={(isChecked) => handleCheck(0, isChecked)}
           />
           <FlippableCard
-            frontTitle="Strategic Vision"
-            frontText="Partners with a forward-thinking approach to game development."
-            backText="You lead with a bold, strategic vision that shapes the future of gaming with clear foresight."
+            frontTitle="Visionary Leadership"
+            frontText="Leading the charge with bold ideas and foresight."
+            backText="You not only navigate the industry’s landscape but shape it. Your strategic vision guides the future of gaming, always staying ahead of the curve."
             onCheck={(isChecked) => handleCheck(1, isChecked)}
           />
           <FlippableCard
-            frontTitle="Technical Leadership"
-            frontText="Studios that leverage advanced technologies to push gaming boundaries."
-            backText="Your team pioneers new technologies, setting the pace for innovation in the gaming sector."
+            frontTitle="Pioneering Technology"
+            frontText="Pushing boundaries through cutting-edge tech."
+            backText="Your studio thrives at the intersection of technology and creativity, using the latest tools to redefine gaming and create immersive ecosystems."
             onCheck={(isChecked) => handleCheck(2, isChecked)}
           />
           <FlippableCard
-            frontTitle="Financial Stability"
-            frontText="Financially robust studios ready to invest in high-impact projects."
-            backText="Your financial strength empowers ambitious ventures, supporting sustained innovation and growth."
+            frontTitle="Sustained Growth"
+            frontText="Focused on building lasting legacies."
+            backText="You’re committed to creating games that endure. Your projects cultivate communities that thrive, ensuring long-term relevance and engagement."
             onCheck={(isChecked) => handleCheck(3, isChecked)}
           />
         </div>
       </Section>
+
 
       {/* Program Benefits Section */}
       <Section id="benefits" title="Joint Benefits">
