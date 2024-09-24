@@ -1,18 +1,20 @@
 // src/App.js
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Header from './components/Header';
 import Section from './components/Section';
 import FlippableCard from './components/FlippableCard';
 import Footer from './components/Footer';
+import ExpandableSection from './components/ExpandableSection';
 import { motion } from 'framer-motion';
-import { scroller } from 'react-scroll'; // Import the scroller from react-scroll
+import { scroller } from 'react-scroll';
 import './index.css';
 
 function App() {
   // State to track if each card's checkbox is checked
   const [checkedCards, setCheckedCards] = useState([false, false, false, false]);
-  
+  const [openSectionIndex, setOpenSectionIndex] = useState(null); // Track the currently open section
+
   // Function to handle checkbox changes
   const handleCheck = (index, isChecked) => {
     const newCheckedCards = [...checkedCards];
@@ -40,6 +42,54 @@ function App() {
     }
   }, [allChecked]);
 
+  const advisorySections = [
+    {
+      title: 'General Advisory',
+      content: [
+        'Comprehensive consulting on integrating tokenized game assets into gaming IPs',
+        'End-to-end project management for token design and launch on any blockchain',
+        'Strategic consulting on the use of ERC-20 tokens for in-game currencies and funding',
+        'Advisory on utilizing NFTs to represent in-game assets, rights, and ownership',
+        'Blockchain selection guidance to align with specific game mechanics and scalability needs',
+      ],
+    },
+    {
+      title: 'Circular Economy Design',
+      content: [
+        'Design and architecture of gaming token economies that drive engagement and retention',
+        'Mechanism design for ERC-20-based in-game currency sinks and faucets',
+        'Economic modeling for balancing token emissions and in-game rewards',
+        'NFT-based ownership models for assets, cosmetics, and user-generated content (UGC)',
+        'Dynamic revenue-sharing models between players, creators, and developers using fungible and non-fungible tokens',
+      ],
+    },
+    {
+      title: 'Market Integration',
+      content: [
+        'Centralized and decentralized exchange integration for in-game ERC-20 token liquidity',
+        'NFT marketplace consulting for in-game item trading, rentals, and secondary sales',
+        'Seamless integration of wallets and other tools for frictionless user experience',
+        'Bridging strategies between different blockchains to allow cross-game asset transfers',
+        'Structuring liquidity for in-game currencies and assets via staking, pools, and market makers',
+      ],
+    },
+    {
+      title: 'GTM Strategy',
+      content: [
+        'User acquisition and engagement strategies tailored to crypto-native and traditional players',
+        'Community building and incentivization models using ERC-20 and NFT rewards',
+        'Best practices for integrating NFT drops and token generation events (TGEs) into launch plans',
+        'Aligning with and incentivizing influencers, streamers, and gaming communities to drive early adoption',
+        'Developing partnerships with other gaming projects to create cross-game experiences',
+      ],
+    },
+  ];
+
+  // Handle which section is expanded or collapsed
+  const handleToggleSection = (index) => {
+    setOpenSectionIndex(index === openSectionIndex ? null : index); // Collapse if the same section is clicked again
+  };
+
   return (
     <div className="bg-gray-900">
       {/* Pass the contact availability state to Navbar */}
@@ -60,17 +110,31 @@ function App() {
               Redefining the Future of Gaming Through Exclusive Collaboration
             </h2>
             <p className="text-lg md:text-xl text-gray-300 leading-relaxed mb-6">
-              ChainSafe Gaming proudly presents the <span className="text-yellow-500 font-semibold">Elite Innovation Partners Program</span> - an exclusive initiative designed to forge strategic alliances with visionary game studios and publishers. This program is reserved for <span className="text-yellow-500 font-semibold">industry leaders committed to pioneering advancements in Web3 gaming technology.</span>
+              ChainSafe introduces the Elite Innovation Partners Program to foster <span className="text-yellow-500 font-semibold">strategic collaborations</span> with <span className="text-yellow-500 font-semibold">game studios</span> and <span className="text-yellow-500 font-semibold">publishers</span> exploring the potential of <span className="text-yellow-500 font-semibold">Web3 technologies</span>.
             </p>
-            <p className="text-lg md:text-xl text-gray-300 leading-relaxed">
-              As one of the top five global companies in full-stack Web3 gaming solutions, ChainSafe Systems offers unparalleled expertise and resources. Our mission is to collaborate with select partners to shape the future of gaming, pushing the boundaries of what's possible.
-            </p>
+            {/* Expandable Sections for Advisory Services */}
+            <div className="container mx-auto px-5">
+              {advisorySections.map((section, index) => (
+                <ExpandableSection
+                  key={index}
+                  title={section.title}
+                  content={section.content}
+                  isExpanded={openSectionIndex === index} // Pass down the current open state
+                  onToggle={() => handleToggleSection(index)} // Toggle the section on click
+                />
+              ))}
+            </div>
           </motion.div>
         </div>
       </section>
 
       {/* Eligibility Criteria Section with Flippable Cards */}
-      <Section id="eligibility" title="Eligibility Criteria">
+      <Section id="eligibility" title="High Calibre Partnerships">
+        <div className="container mx-auto px-5">
+          <p className="text-lg md:text-xl text-gray-300 leading-relaxed mb-6 text-center">
+            At ChainSafe, we're proud to have developed deep expertise in Web3 technologies. We believe that the best results come from partnering with equally dedicated and innovative teams in the gaming industry. Together, we can explore new possibilities and create meaningful advancements in Web3 and gaming.
+          </p>
+        </div>
         <div className="grid md:grid-cols-3 gap-2">
           <FlippableCard
             frontTitle="Proven Excellence"
@@ -100,7 +164,7 @@ function App() {
       </Section>
 
       {/* Program Benefits Section */}
-      <Section id="benefits" title="Program Benefits">
+      <Section id="benefits" title="Joint Benefits">
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           <motion.div
             className="bg-gray-800 p-6 rounded"
@@ -110,9 +174,7 @@ function App() {
             transition={{ duration: 0.5 }}
           >
             <h3 className="text-2xl font-semibold mb-4 text-yellow-500">Priority Collaboration</h3>
-            <p>
-              Direct access to ChainSafe's top-tier development teams and resources.
-            </p>
+            <p>Direct access to ChainSafe's top-tier development teams and resources.</p>
           </motion.div>
 
           <motion.div
@@ -123,9 +185,7 @@ function App() {
             transition={{ duration: 0.5, delay: 0.1 }}
           >
             <h3 className="text-2xl font-semibold mb-4 text-yellow-500">Customized Solutions</h3>
-            <p>
-              Tailored Web3 integration and development services aligned with your strategic objectives.
-            </p>
+            <p>Tailored Web3 integration and development services aligned with your strategic objectives.</p>
           </motion.div>
 
           <motion.div
@@ -136,9 +196,7 @@ function App() {
             transition={{ duration: 0.5, delay: 0.2 }}
           >
             <h3 className="text-2xl font-semibold mb-4 text-yellow-500">Technological Edge</h3>
-            <p>
-              Early adoption of cutting-edge technologies, positioning you ahead of the competition.
-            </p>
+            <p>Early adoption of cutting-edge technologies, positioning you ahead of the competition.</p>
           </motion.div>
 
           <motion.div
@@ -149,9 +207,7 @@ function App() {
             transition={{ duration: 0.5, delay: 0.3 }}
           >
             <h3 className="text-2xl font-semibold mb-4 text-yellow-500">Strategic Insights</h3>
-            <p>
-              Exclusive industry insights and thought leadership from ChainSafe's experts.
-            </p>
+            <p>Exclusive industry insights and thought leadership from ChainSafe's experts.</p>
           </motion.div>
 
           <motion.div
@@ -162,9 +218,7 @@ function App() {
             transition={{ duration: 0.5, delay: 0.4 }}
           >
             <h3 className="text-2xl font-semibold mb-4 text-yellow-500">Dedicated Support</h3>
-            <p>
-              Premium support services ensuring seamless project execution and delivery.
-            </p>
+            <p>Premium support services ensuring seamless project execution and delivery.</p>
           </motion.div>
 
           <motion.div
@@ -175,9 +229,7 @@ function App() {
             transition={{ duration: 0.5, delay: 0.5 }}
           >
             <h3 className="text-2xl font-semibold mb-4 text-yellow-500">Exclusive Networking</h3>
-            <p>
-              Opportunities to connect with other elite partners and industry leaders.
-            </p>
+            <p>Opportunities to connect with other elite partners and industry leaders.</p>
           </motion.div>
         </div>
       </Section>
@@ -199,9 +251,7 @@ function App() {
             </div>
             <div>
               <h3 className="text-2xl font-semibold mb-2 text-yellow-500">Confidential Inquiry</h3>
-              <p>
-                Qualified organizations are invited to initiate contact directly and confidentially.
-              </p>
+              <p>Organizations are invited to initiate contact directly and confidentially.</p>
             </div>
           </motion.div>
 
@@ -219,9 +269,7 @@ function App() {
             </div>
             <div>
               <h3 className="text-2xl font-semibold mb-2 text-yellow-500">Executive Consultation</h3>
-              <p>
-                Strategic discussion between executive teams to assess alignment and objectives.
-              </p>
+              <p>Strategic discussion between executive teams to assess alignment and objectives.</p>
             </div>
           </motion.div>
 
@@ -239,9 +287,7 @@ function App() {
             </div>
             <div>
               <h3 className="text-2xl font-semibold mb-2 text-yellow-500">Tailored Proposal</h3>
-              <p>
-                Development of a customized partnership proposal outlining the scope and terms of collaboration.
-              </p>
+              <p>Development of a customized partnership proposal outlining the scope and terms of collaboration.</p>
             </div>
           </motion.div>
 
@@ -259,9 +305,7 @@ function App() {
             </div>
             <div>
               <h3 className="text-2xl font-semibold mb-2 text-yellow-500">Formal Agreement</h3>
-              <p>
-                Formalization of the partnership, setting the foundation for a successful collaboration.
-              </p>
+              <p>Formalization of the partnership, setting the foundation for a successful collaboration.</p>
             </div>
           </motion.div>
 
@@ -279,9 +323,7 @@ function App() {
             </div>
             <div>
               <h3 className="text-2xl font-semibold mb-2 text-yellow-500">Initiation of Project</h3>
-              <p>
-                Commencement of work with a dedicated team ensuring consistent communication and excellence.
-              </p>
+              <p>Commencement of work with a dedicated team ensuring consistent communication and excellence.</p>
             </div>
           </motion.div>
         </div>
@@ -301,9 +343,7 @@ function App() {
             <p className="mb-2">
               Telegram: <a href="https://t.me/cmdmcsellerie" target="_blank" rel="noopener noreferrer" className="text-yellow-500 hover:underline">@cmdmcsellerie</a>
             </p>
-            <p>
-              Discord: <span className="text-yellow-500">Mcsellerie</span>
-            </p>
+            <p>Discord: <span className="text-yellow-500">Mcsellerie</span></p>
           </div>
         </Section>
       )}

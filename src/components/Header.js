@@ -19,7 +19,7 @@ function Header() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
         >
-          Elite Innovation Partners
+          ChainSafe Gaming Solutions
         </motion.h1>
         <motion.p
           className="text-xl md:text-2xl text-gray-300 mb-10 text-center max-w-2xl"
@@ -27,7 +27,7 @@ function Header() {
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.5 }}
         >
-          Join an exclusive circle of visionaries shaping the future of gaming.
+          Join an exclusive circle of elite studios and crypto-native builders to shape the future of gaming together.
         </motion.p>
         <motion.div
           initial={{ opacity: 0 }}
