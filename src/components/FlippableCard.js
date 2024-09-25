@@ -1,9 +1,8 @@
-// src/components/FlippableCard.js
 import React, { useRef, useState } from 'react';
 import useEqualHeight from '../hooks/useEqualHeight';
 import './FlippableCard.css';
 
-function FlippableCard({ frontTitle, frontText, backText, onCheck }) {
+function FlippableCard({ frontTitle, frontText, backText, cardIcon, onCheck, backgroundImage }) {
   const frontRef = useRef(null);
   const backRef = useRef(null);
   const [isFlipped, setIsFlipped] = useState(false);
@@ -27,15 +26,22 @@ function FlippableCard({ frontTitle, frontText, backText, onCheck }) {
 
   return (
     <div
-      className={`group flippable-card ${isFlipped ? 'flipped' : ''} ${
-        isCompleted ? 'completed' : ''
-      }`}
+      className={`group flippable-card ${isFlipped ? 'flipped' : ''} ${isCompleted ? 'completed' : ''}`}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
       <div className="flippable-card-inner">
         {/* Front Side */}
-        <div className="flippable-card-front" ref={frontRef}>
+        <div
+          className="flippable-card-front"
+          ref={frontRef}
+          style={{
+            backgroundImage: `url(${backgroundImage})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}
+        >
+          {cardIcon && <div className="card-icon">{cardIcon}</div>}
           <h3 className="text-2xl font-semibold mb-4 text-yellow-500">{frontTitle}</h3>
           <p className="flippable-card-content">{frontText}</p>
           {isCompleted && (
@@ -49,11 +55,7 @@ function FlippableCard({ frontTitle, frontText, backText, onCheck }) {
         {/* Back Side */}
         <div className="flippable-card-back" ref={backRef}>
           <p className="flippable-card-content">{backText}</p>
-          <button
-            onClick={handleConfirm}
-            className="confirm-button mt-4"
-            disabled={isCompleted} // Disable button after confirmation
-          >
+          <button onClick={handleConfirm} className="confirm-button mt-4" disabled={isCompleted}>
             Confirm
           </button>
         </div>
@@ -63,26 +65,3 @@ function FlippableCard({ frontTitle, frontText, backText, onCheck }) {
 }
 
 export default FlippableCard;
-
-// src/components/FlippableCard.js
-
-// import React, { useRef } from 'react';
-// import './FlippableCard.css';
-
-// function FlippableCard({ frontTitle, frontText, backText }) {
-//   return (
-//     <div className="flippable-card">
-//       <div className="flippable-card-inner">
-//         <div className="flippable-card-front">
-//           <h3>{frontTitle}</h3>
-//           <p>{frontText}</p>
-//         </div>
-//         <div className="flippable-card-back">
-//           <p>{backText}</p>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// }
-
-// export default FlippableCard;

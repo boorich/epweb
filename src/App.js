@@ -9,6 +9,9 @@ import ExpandableSection from './components/ExpandableSection';
 import { motion } from 'framer-motion';
 import { scroller } from 'react-scroll';
 import './index.css';
+import '@fortawesome/fontawesome-free/css/all.min.css';
+import cardImage1 from './assets/card1.png';
+
 
 function App() {
   // State to track if each card's checkbox is checked
@@ -135,28 +138,36 @@ function App() {
             At ChainSafe, we're proud to have developed deep expertise in Web3 technologies. We believe that the best results come from partnering with equally dedicated and innovative teams in the gaming industry. Together, we can explore new possibilities and create meaningful advancements in Web3 and gaming.
           </p>
         </div>
-        <div className="grid grid-cols-2 gap-2">
+        <div className="grid grid-cols-4 gap-2">
           <FlippableCard
             frontTitle="Proven Excellence"
-            frontText="A history of raising the bar in quality and innovation."
+            //frontText="Are you among the best?"
+            cardIcon={<i className="fas fa-crown card-icon"></i>} /* Example icon */
+            backgroundImage={cardImage1}
             backText="Your studio sets trends. With each title, you push the boundaries of what’s possible, delivering experiences that shape the future of gaming."
             onCheck={(isChecked) => handleCheck(0, isChecked)}
           />
           <FlippableCard
             frontTitle="Visionary Leadership"
-            frontText="Leading the charge with bold ideas and foresight."
+            //frontText="Leading the charge with bold ideas and foresight."
+            cardIcon={<i className="fas fa-heart card-icon"></i>} /* Example icon */
+            backgroundImage={cardImage1}
             backText="You not only navigate the industry’s landscape but shape it. Your strategic vision guides the future of gaming, always staying ahead of the curve."
             onCheck={(isChecked) => handleCheck(1, isChecked)}
           />
           <FlippableCard
             frontTitle="Pioneering Technology"
-            frontText="Pushing boundaries through cutting-edge tech."
+            //frontText="Pushing boundaries through cutting-edge tech."
+            cardIcon={<i className="fas fa-graduation-cap card-icon"></i>} /* Example icon */
+            backgroundImage={cardImage1}
             backText="Your studio thrives at the intersection of technology and creativity, using the latest tools to redefine gaming and create immersive ecosystems."
             onCheck={(isChecked) => handleCheck(2, isChecked)}
           />
           <FlippableCard
             frontTitle="Sustained Growth"
-            frontText="Focused on building lasting legacies."
+            //frontText="Focused on building lasting legacies."
+            cardIcon={<i className="fas fa-seedling card-icon"></i>} /* Example icon */
+            backgroundImage={cardImage1}
             backText="You’re committed to creating games that endure. Your projects cultivate communities that thrive, ensuring long-term relevance and engagement."
             onCheck={(isChecked) => handleCheck(3, isChecked)}
           />
