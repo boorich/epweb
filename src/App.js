@@ -110,10 +110,10 @@ function App() {
             className="max-w-3xl mx-auto text-center"
           >
             <h2 className="text-4xl md:text-5xl font-bold text-yellow-500 mb-6">
-              Redefining the Future of Gaming Through Exclusive Collaboration
+              Pioneering the Future of Gaming Through Web3 Co-Development
             </h2>
             <p className="text-lg md:text-xl text-gray-300 leading-relaxed mb-6">
-              ChainSafe introduces the Elite Innovation Partners Program to foster <span className="text-yellow-500 font-semibold">strategic collaborations</span> with <span className="text-yellow-500 font-semibold">game studios</span> and <span className="text-yellow-500 font-semibold">publishers</span> exploring the potential of <span className="text-yellow-500 font-semibold">Web3 technologies</span>.
+              ChainSafe introduces the Elite Innovation Partners Program, designed to form <span className="text-yellow-500 font-semibold">strategic co-development partnerships</span> with game studios and publishers. Together, we bring the power of Web3 technologies into AAA games, enabling new gameplay mechanics, enhanced ownership models, and innovative tokenized ecosystems.
             </p>
             {/* Expandable Sections for Advisory Services */}
             <div className="container mx-auto px-5">
@@ -135,7 +135,7 @@ function App() {
       <Section id="eligibility" title="High Calibre Partnerships">
         <div className="container mx-auto px-5">
           <p className="text-lg md:text-xl text-gray-300 leading-relaxed mb-6 text-center">
-            At ChainSafe, we're proud to have developed deep expertise in Web3 technologies. We believe that the best results come from partnering with equally dedicated and innovative teams in the gaming industry. Together, we can explore new possibilities and create meaningful advancements in Web3 and gaming.
+            At ChainSafe, we specialize in co-developing advanced Web3 solutions tailored to the unique needs of AAA game productions. We partner with studios dedicated to pushing the boundaries of gaming technology. Together, we aim to seamlessly integrate blockchain technology, tokenized assets, and decentralized systems, bringing new gameplay possibilities and player experiences to life.
           </p>
         </div>
         <div className="grid grid-cols-4 gap-2">
@@ -178,6 +178,16 @@ function App() {
       {/* Program Benefits Section */}
       <Section id="benefits" title="Joint Benefits">
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <motion.div
+            className="bg-gray-800 p-6 rounded"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            <h3 className="text-2xl font-semibold mb-4 text-yellow-500">Collaborative Web3 Development</h3>
+            <p>Provable blockchain expertise while retaining creative control over your IP.</p>
+          </motion.div>
           <motion.div
             className="bg-gray-800 p-6 rounded"
             initial={{ opacity: 0, y: 30 }}
@@ -186,7 +196,7 @@ function App() {
             transition={{ duration: 0.5 }}
           >
             <h3 className="text-2xl font-semibold mb-4 text-yellow-500">Priority Collaboration</h3>
-            <p>Direct access to ChainSafe's top-tier development teams and resources.</p>
+            <p>Direct access to our top-tier development teams and resources.</p>
           </motion.div>
 
           <motion.div
@@ -197,7 +207,7 @@ function App() {
             transition={{ duration: 0.5, delay: 0.1 }}
           >
             <h3 className="text-2xl font-semibold mb-4 text-yellow-500">Customized Solutions</h3>
-            <p>Tailored Web3 integration and development services aligned with your strategic objectives.</p>
+            <p>Domain-specific application of best pratice across the web3 gaming stack.</p>
           </motion.div>
 
           <motion.div
@@ -208,7 +218,7 @@ function App() {
             transition={{ duration: 0.5, delay: 0.2 }}
           >
             <h3 className="text-2xl font-semibold mb-4 text-yellow-500">Technological Edge</h3>
-            <p>Early adoption of cutting-edge technologies, positioning you ahead of the competition.</p>
+            <p>Adoption of clatest technologies, positioning you in the lead.</p>
           </motion.div>
 
           <motion.div
@@ -231,17 +241,6 @@ function App() {
           >
             <h3 className="text-2xl font-semibold mb-4 text-yellow-500">Dedicated Support</h3>
             <p>Premium support services ensuring seamless project execution and delivery.</p>
-          </motion.div>
-
-          <motion.div
-            className="bg-gray-800 p-6 rounded"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.5 }}
-          >
-            <h3 className="text-2xl font-semibold mb-4 text-yellow-500">Exclusive Networking</h3>
-            <p>Opportunities to connect with other elite partners and industry leaders.</p>
           </motion.div>
         </div>
       </Section>
@@ -299,7 +298,7 @@ function App() {
             </div>
             <div>
               <h3 className="text-2xl font-semibold mb-2 text-yellow-500">Tailored Proposal</h3>
-              <p>Development of a customized partnership proposal outlining the scope and terms of collaboration.</p>
+              <p>Development of a customized co-development proposal, detailing how we will collaboratively integrate Web3 technology into your game, including the scope, responsibilities, and shared objectives.</p>
             </div>
           </motion.div>
 
