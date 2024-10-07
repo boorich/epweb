@@ -218,7 +218,7 @@ function App() {
             transition={{ duration: 0.5, delay: 0.2 }}
           >
             <h3 className="text-2xl font-semibold mb-4 text-yellow-500">Technological Edge</h3>
-            <p>Adoption of clatest technologies, positioning you in the lead.</p>
+            <p>Adoption of latest technologies, positioning you in the lead.</p>
           </motion.div>
 
           <motion.div
