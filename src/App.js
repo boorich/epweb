@@ -6,6 +6,7 @@ import Section from './components/Section';
 import FlippableCard from './components/FlippableCard';
 import Footer from './components/Footer';
 import ExpandableSection from './components/ExpandableSection';
+import CoreBenefits from './components/CoreBenefits';
 import { motion } from 'framer-motion';
 import { scroller } from 'react-scroll';
 import './index.css';
@@ -46,6 +47,16 @@ function App() {
   }, [allChecked]);
 
   const advisorySections = [
+    {
+      title: 'Sustainable Web3 Funding Advisory',
+      content: [
+        'Community-centered approach to funding that reduces dependency on traditional VC models',
+        'Structured token design and blockchain launch frameworks to support independent game development',
+        'ERC-20 tokens as resilient alternatives to publisher-led capital, creating self-sustaining in-game economies',
+        'NFT-based pre-production assets to validate concepts, attract early funding, and engage dedicated communities',
+        'Blockchain selection expertise to foster transparent, community-driven funding and reinforce creator-player ownership',
+      ],
+    },
     {
       title: 'General Advisory',
       content: [
@@ -130,7 +141,7 @@ function App() {
           </motion.div>
         </div>
       </section>
-
+      <CoreBenefits />
       {/* Eligibility Criteria Section with Flippable Cards */}
       <Section id="eligibility" title="High Calibre Partnerships">
         <div className="container mx-auto px-5">
@@ -178,7 +189,7 @@ function App() {
       {/* Program Benefits Section */}
       <Section id="benefits" title="Joint Benefits">
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <motion.div
+          <motion.div
             className="bg-gray-800 p-6 rounded"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
