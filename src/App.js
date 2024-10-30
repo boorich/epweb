@@ -7,6 +7,7 @@ import FlippableCard from './components/FlippableCard';
 import Footer from './components/Footer';
 import ExpandableSection from './components/ExpandableSection';
 import CoreBenefits from './components/CoreBenefits';
+import TeamContacts from './components/TeamContacts';
 import { motion } from 'framer-motion';
 import { scroller } from 'react-scroll';
 import './index.css';
@@ -358,14 +359,7 @@ function App() {
             <p className="mb-8">
               Congratulations! You've unlocked the contact information for the Elite Innovation Partners Program.
             </p>
-            <h3 className="text-2xl font-semibold mb-4 text-yellow-500">Martin Maurer</h3>
-            <p className="mb-2">
-              Email: <a href="mailto:martin@chainsafe.io" className="text-yellow-500 hover:underline">martin@chainsafe.io</a>
-            </p>
-            <p className="mb-2">
-              Telegram: <a href="https://t.me/cmdmcsellerie" target="_blank" rel="noopener noreferrer" className="text-yellow-500 hover:underline">@cmdmcsellerie</a>
-            </p>
-            <p>Discord: <span className="text-yellow-500">Mcsellerie</span></p>
+            <TeamContacts /> 
           </div>
         </Section>
       )}
